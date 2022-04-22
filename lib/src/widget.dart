@@ -1,6 +1,6 @@
-import 'dart:ui';
 import 'package:collection/collection.dart' show IterableExtension;
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'model/builder.dart';
 import 'model/modal_theme.dart';
 import 'model/modal_config.dart';
@@ -1119,7 +1119,7 @@ abstract class S2State<T> extends State<SmartSelect<T>> {
       autofocus: true,
       controller: filter!.ctrl,
       style: TextStyle(color: Colors.black),
-      cursorColor: modalConfig.isFullPage ? Colors.black : theme.cursorColor,
+      cursorColor: modalConfig.isFullPage ? Colors.black : theme.cardColor,
       textInputAction: TextInputAction.search,
       decoration: InputDecoration.collapsed(
         hintText: modalConfig.filterHint ?? 'Search on $title',
@@ -1168,6 +1168,7 @@ abstract class S2State<T> extends State<SmartSelect<T>> {
     return _customConfirmButton ?? defaultConfirmButton;
   }
 
+
   /// Returns the custom confirm button widget
   Widget? get _customConfirmButton;
 
@@ -1182,14 +1183,12 @@ abstract class S2State<T> extends State<SmartSelect<T>> {
           child: Padding(
             padding: modalConfig.confirmMargin ??
                 const EdgeInsets.fromLTRB(0, 0, 10, 0),
-            child: FlatButton.icon(
+            child: TextButton.icon(
               icon: modalConfig.confirmIcon!,
               label: modalConfig.confirmLabel!,
-              color:
-                  modalConfig.confirmIsDark ? modalConfig.confirmColor : null,
-              textColor: modalConfig.confirmIsLight
+              style: TextButton.styleFrom(backgroundColor: modalConfig.confirmIsDark ? modalConfig.confirmColor : null,textStyle: TextStyle(color: modalConfig.confirmIsLight
                   ? modalConfig.confirmColor
-                  : Colors.white,
+                  : Colors.white)),
               onPressed: onPressed,
             ),
           ),
@@ -1199,14 +1198,11 @@ abstract class S2State<T> extends State<SmartSelect<T>> {
           child: Padding(
             padding: modalConfig.confirmMargin ??
                 const EdgeInsets.fromLTRB(0, 0, 10, 0),
-            child: FlatButton(
+            child: TextButton(
               child: modalConfig.confirmLabel!,
-              color: modalConfig.confirmIsDark
-                  ? modalConfig.confirmColor ?? Colors.blueGrey
-                  : null,
-              textColor: modalConfig.confirmIsLight
+              style: TextButton.styleFrom(backgroundColor: modalConfig.confirmIsDark ? modalConfig.confirmColor : null,textStyle: TextStyle(color: modalConfig.confirmIsLight
                   ? modalConfig.confirmColor
-                  : Colors.white,
+                  : Colors.white)),
               onPressed: onPressed,
             ),
           ),
@@ -1697,6 +1693,8 @@ abstract class S2State<T> extends State<SmartSelect<T>> {
 
 /// State for Single Choice
 class S2SingleState<T> extends S2State<T> {
+  
+
   /// State of the selected choice(s)
   @override
   S2SingleSelected<T>? selected;
