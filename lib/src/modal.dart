@@ -38,7 +38,7 @@ class _S2ModalState extends State<S2Modal> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance!.addPostFrameCallback((_) => widget.onReady.call());
+    WidgetsBinding.instance.addPostFrameCallback((_) => widget.onReady.call());
   }
 
   @override
