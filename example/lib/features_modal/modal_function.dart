@@ -21,7 +21,7 @@ class _ProgrammaticModalState extends State<ProgrammaticModal> {
   void initState() {
     super.initState();
 
-    WidgetsBinding.instance?.addPostFrameCallback((_) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       _smartSelectKey.currentState?.showModal();
     });
   }

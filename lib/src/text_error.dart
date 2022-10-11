@@ -96,7 +96,7 @@ class _S2TextErrorState extends State<S2TextError> {
   void initState() {
     super.initState();
 
-    WidgetsBinding.instance!.addPostFrameCallback((_) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       initController(widget.controller);
     });
   }
