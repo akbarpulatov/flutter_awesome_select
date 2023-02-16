@@ -1,6 +1,8 @@
 import 'dart:ui';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
+
 import './modal_theme.dart';
 
 /// Target to open choices list
@@ -15,11 +17,22 @@ enum S2ModalType {
   bottomSheet,
 }
 
+enum S2ModalNavigatorType {
+  /// material, with zooming animation by default
+  material,
+
+  /// cupertino, with sliding animation by default
+  cupertino,
+}
+
 /// Modal configuration
 @immutable
 class S2ModalConfig with Diagnosticable {
   /// Modal type to display choices
   final S2ModalType type;
+
+  /// Modal navigator type: material or cupertino
+  final S2ModalNavigatorType navigatorType;
 
   /// Use different title with the trigger widget title
   final String? title;
@@ -82,6 +95,7 @@ class S2ModalConfig with Diagnosticable {
   /// Create modal configuration
   const S2ModalConfig({
     this.type = S2ModalType.fullPage,
+    this.navigatorType = S2ModalNavigatorType.material,
     this.title,
     this.useHeader = true,
     this.useConfirm = false,
@@ -138,10 +152,12 @@ class S2ModalConfig with Diagnosticable {
     bool? barrierDismissible,
     Color? barrierColor,
     S2ModalStyle? style,
+    S2ModalNavigatorType? navigatorType,
     S2ModalHeaderStyle? headerStyle,
   }) {
     return S2ModalConfig(
       type: type ?? this.type,
+      navigatorType: navigatorType ?? this.navigatorType,
       title: title ?? this.title,
       useHeader: useHeader ?? this.useHeader,
       useConfirm: useConfirm ?? this.useConfirm,
@@ -173,6 +189,7 @@ class S2ModalConfig with Diagnosticable {
 
     return copyWith(
       type: other.type,
+      navigatorType: other.navigatorType,
       title: other.title,
       useHeader: other.useHeader,
       useConfirm: other.useConfirm,

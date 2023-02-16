@@ -1,5 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:awesome_select/awesome_select.dart';
+import 'package:flutter/material.dart';
+
 import '../choices.dart' as choices;
 
 class FeaturesMultiPage extends StatefulWidget {
@@ -29,6 +30,7 @@ class _FeaturesMultiPageState extends State<FeaturesMultiPage> {
           choiceItems: choices.months,
           modalType: S2ModalType.fullPage,
           onChange: (selected) => setState(() => _month = selected.value),
+          modalNavigatorType: S2ModalNavigatorType.cupertino,
         ),
         const SizedBox(height: 7),
       ],

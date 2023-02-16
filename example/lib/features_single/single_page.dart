@@ -29,6 +29,7 @@ class _FeaturesSinglePageState extends State<FeaturesSinglePage> {
           selectedValue: _month,
           choiceItems: choices.months,
           onChange: (selected) => setState(() => _month = selected.value),
+          modalNavigatorType: S2ModalNavigatorType.cupertino,
         ),
         const SizedBox(height: 7),
       ],
