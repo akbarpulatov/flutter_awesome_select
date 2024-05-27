@@ -56,7 +56,7 @@ class _FeaturesModalHeaderState extends State<FeaturesModalHeader> {
             type: S2ModalType.popupDialog,
             headerStyle: S2ModalHeaderStyle(
               backgroundColor: Theme.of(context).primaryColor,
-              textStyle: Theme.of(context).primaryTextTheme.headline6,
+              textStyle: Theme.of(context).primaryTextTheme.titleLarge,
               centerTitle: true,
               elevation: 0,
             ),
