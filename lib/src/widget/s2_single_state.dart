@@ -8,7 +8,7 @@ class S2SingleState<T> extends S2State<T> {
 
   /// State of choice(s) selection in the modal
   @override
-  S2SingleSelection<T>? selection;
+  S2SingleSelection<T?>? selection;
 
   @override
   void onChange() {
@@ -48,12 +48,12 @@ class S2SingleState<T> extends S2State<T> {
   }
 
   @override
-  S2Validation<S2SingleChosen<T>>? get validation {
+  S2Validation<S2SingleChosen<T?>>? get validation {
     return widget.singleValidation;
   }
 
   @override
-  S2Validation<S2SingleChosen<T>>? get modalValidation {
+  S2Validation<S2SingleChosen<T?>>? get modalValidation {
     return widget.singleModalValidation ?? validation;
   }
 
@@ -71,7 +71,7 @@ class S2SingleState<T> extends S2State<T> {
   @override
   void resolveSelection() async {
     // set the initial selection
-    selection = S2SingleSelection<T>(
+    selection = S2SingleSelection<T?>(
       initial: selected.choice,
       validation: modalValidation,
     )
@@ -181,5 +181,5 @@ class S2SingleState<T> extends S2State<T> {
   Widget? choiceSelector(List<S2Choice<T>>? values) => null;
 
   @override
-  S2SingleSelected<T> get selected => widget.singleSelected!;
+  S2SingleSelected<T?> get selected => widget.singleSelected!;
 }

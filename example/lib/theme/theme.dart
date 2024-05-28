@@ -1,5 +1,6 @@
-import 'package:flutter/material.dart';
 import 'dart:math';
+
+import 'package:flutter/material.dart';
 
 /// The theme patrol data
 ///
@@ -76,10 +77,10 @@ class ThemePatrol extends StatefulWidget {
     return ThemePatrol._(
         builder: builder,
         theme: ThemePatrolData().merge(theme).copyWith(
-          light: light,
-          dark: dark,
-          mode: mode,
-        ));
+              light: light,
+              dark: dark,
+              mode: mode,
+            ));
   }
 
   /// Builder that gets called when the brightness or theme changes
@@ -152,10 +153,10 @@ class ThemePatrolState extends State<ThemePatrol> {
   }) {
     setState(() {
       theme = theme?.merge(data).copyWith(
-        light: light,
-        dark: dark,
-        mode: mode,
-      ) ??
+                light: light,
+                dark: dark,
+                mode: mode,
+              ) ??
           data;
     });
   }
@@ -173,9 +174,54 @@ class ThemePatrolState extends State<ThemePatrol> {
         primarySwatch: swatch,
         primaryColor: primary,
         colorScheme: ColorScheme.dark(secondary: accent ?? primary),
-        toggleableActiveColor: accent ?? swatch[600],
         brightness: Brightness.dark,
         visualDensity: VisualDensity.adaptivePlatformDensity,
+        checkboxTheme: CheckboxThemeData(
+          fillColor: WidgetStateProperty.resolveWith<Color?>(
+              (Set<WidgetState> states) {
+            if (states.contains(WidgetState.disabled)) {
+              return null;
+            }
+            if (states.contains(WidgetState.selected)) {
+              return accent ?? swatch[600];
+            }
+            return null;
+          }),
+        ),
+        radioTheme: RadioThemeData(
+          fillColor: WidgetStateProperty.resolveWith<Color?>(
+              (Set<WidgetState> states) {
+            if (states.contains(WidgetState.disabled)) {
+              return null;
+            }
+            if (states.contains(WidgetState.selected)) {
+              return accent ?? swatch[600];
+            }
+            return null;
+          }),
+        ),
+        switchTheme: SwitchThemeData(
+          thumbColor: WidgetStateProperty.resolveWith<Color?>(
+              (Set<WidgetState> states) {
+            if (states.contains(WidgetState.disabled)) {
+              return null;
+            }
+            if (states.contains(WidgetState.selected)) {
+              return accent ?? swatch[600];
+            }
+            return null;
+          }),
+          trackColor: WidgetStateProperty.resolveWith<Color?>(
+              (Set<WidgetState> states) {
+            if (states.contains(WidgetState.disabled)) {
+              return null;
+            }
+            if (states.contains(WidgetState.selected)) {
+              return accent ?? swatch[600];
+            }
+            return null;
+          }),
+        ),
       ),
     );
   }

@@ -117,7 +117,7 @@ class S2Choices<T> extends ChangeNotifier {
     // skip the loader if the items already filled
     if (isInitializing && isNotEmpty) return null;
 
-    task = _task;
+    task = task;
     page = isAppending ? page + 1 : 1;
     notifyListeners();
 

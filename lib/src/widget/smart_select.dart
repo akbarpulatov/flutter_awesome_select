@@ -32,16 +32,16 @@ class SmartSelect<T> extends StatefulWidget {
   final bool isMultiChoice;
 
   /// Initial selected choice
-  final S2SingleSelected<T>? singleSelected;
+  final S2SingleSelected<T?>? singleSelected;
 
   /// A function used to validate the selected choice
-  final S2Validation<S2SingleChosen<T>>? singleValidation;
+  final S2Validation<S2SingleChosen<T?>>? singleValidation;
 
   /// Modal validation of single choice widget
-  final S2Validation<S2SingleChosen<T>>? singleModalValidation;
+  final S2Validation<S2SingleChosen<T?>>? singleModalValidation;
 
   /// Called when value changed in single choice widget
-  final ValueChanged<S2SingleSelected<T>>? singleOnChange;
+  final ValueChanged<S2SingleSelected<T?>>? singleOnChange;
 
   /// Called when selection has been made in single choice widget
   final S2ChoiceSelect<S2SingleState<T>, S2Choice<T>>? singleOnSelect;
@@ -329,17 +329,17 @@ class SmartSelect<T> extends StatefulWidget {
     Key? key,
     String? title,
     String placeholder = 'Select one',
-    required T selectedValue,
+    T? selectedValue,
     S2Choice<T>? selectedChoice,
-    S2SingleSelectedResolver<T>? selectedResolver,
-    ValueChanged<S2SingleSelected<T>>? onChange,
+    S2SingleSelectedResolver<T?>? selectedResolver,
+    ValueChanged<S2SingleSelected<T?>>? onChange,
     S2ChoiceSelect<S2SingleState<T>, S2Choice<T>>? onSelect,
     S2ModalOpen<S2SingleState<T>>? onModalOpen,
     S2ModalClose<S2SingleState<T>>? onModalClose,
     S2ModalWillOpen<S2SingleState<T>>? onModalWillOpen,
     S2ModalWillClose<S2SingleState<T>>? onModalWillClose,
-    S2Validation<S2SingleChosen<T>>? validation,
-    S2Validation<S2SingleChosen<T>>? modalValidation,
+    S2Validation<S2SingleChosen<T?>>? validation,
+    S2Validation<S2SingleChosen<T?>>? modalValidation,
     List<S2Choice<T>>? choiceItems,
     S2ChoiceLoader<T>? choiceLoader,
     S2SingleBuilder<T>? builder,
@@ -404,7 +404,7 @@ class SmartSelect<T> extends StatefulWidget {
       choiceItems: choiceItems,
       choiceLoader: choiceLoader,
       isMultiChoice: false,
-      singleSelected: S2SingleSelected<T>(
+      singleSelected: S2SingleSelected<T?>(
         value: selectedValue,
         choice: selectedChoice,
         resolver: selectedResolver,

@@ -23,7 +23,7 @@ class _FeaturesBrightnessState extends State<FeaturesBrightness> {
       selectedValue:
           ThemePatrol.of(context)?.themeMode?.index ?? ThemeMode.system.index,
       onChange: (selected) {
-        ThemePatrol.of(context)?.setMode(ThemeMode.values[selected.value]);
+        ThemePatrol.of(context)?.setMode(ThemeMode.values[selected.value!]);
       },
       modalType: S2ModalType.bottomSheet,
       modalHeader: false,
@@ -47,7 +47,7 @@ class _FeaturesBrightnessState extends State<FeaturesBrightness> {
       },
       tileBuilder: (context, state) {
         return IconButton(
-          icon: Icon(modes[state.selected.value].meta),
+          icon: Icon(modes[state.selected.value!].meta),
           onPressed: state.showModal,
         );
       },

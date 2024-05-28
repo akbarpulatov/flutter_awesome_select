@@ -7,10 +7,10 @@ class S2ChoicesEmpty extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: const <Widget>[
+        children: <Widget>[
           Icon(
             Icons.search,
             color: Colors.grey,

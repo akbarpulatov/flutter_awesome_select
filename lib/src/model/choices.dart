@@ -22,10 +22,10 @@ class S2Choices<T> {
 
   /// return a filtered list of options
   List<S2Choice<T>> get filteredItems {
-    final _query = query;
-    return _query != null
+    final q = query;
+    return q != null
         ? nonHiddenItems
-            .where((S2Choice<T> item) => item.contains(_query))
+            .where((S2Choice<T> item) => item.contains(q))
             .toList()
             .cast<S2Choice<T>>()
         : nonHiddenItems;
@@ -51,8 +51,9 @@ class S2Choices<T> {
         .cast<S2Group<T>>();
 
     // sort the list when the comparator is provided
-    if (groupConfig.sortBy != null)
+    if (groupConfig.sortBy != null) {
       return groups..sort(groupConfig.sortBy!.compare);
+    }
 
     return groups;
   }

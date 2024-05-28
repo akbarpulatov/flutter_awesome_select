@@ -141,20 +141,20 @@ class S2TileChips extends StatelessWidget {
       chipLength,
       (i) {
         // build chip widget
-        Widget _chip =
+        Widget chip =
             chipBuilder?.call(context, i) ?? _chipGenerator(context, i);
 
         // add spacing if chip is scrollable
         if (scrollable) {
-          _chip = Padding(
+          chip = Padding(
             padding: EdgeInsets.only(
               right: i < chipLength - 1 ? chipSpacing ?? 7 : 0,
             ),
-            child: _chip,
+            child: chip,
           );
         }
 
-        return _chip;
+        return chip;
       },
     ).toList();
   }

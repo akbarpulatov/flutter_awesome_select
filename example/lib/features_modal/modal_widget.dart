@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:awesome_select/awesome_select.dart';
+import 'package:flutter/material.dart';
 
 class FeaturesModalWidget extends StatefulWidget {
   @override
@@ -34,8 +34,7 @@ class _FeaturesModalWidgetState extends State<FeaturesModalWidget> {
       children: <Widget>[
         const SizedBox(height: 7),
         SmartSelect<int?>.single(
-          title:
-              'Overall, how satisfied are you with awesome_select package?',
+          title: 'Overall, how satisfied are you with awesome_select package?',
           selectedValue: _question1,
           onChange: (selected) {
             setState(() => _question1 = selected.value);
@@ -135,9 +134,9 @@ class _FeaturesModalWidgetState extends State<FeaturesModalWidget> {
                 child: TextButton(
                   child: Text('Submit (${state.selection?.length})'),
                   style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all<Color>(
+                    backgroundColor: WidgetStateProperty.all<Color>(
                         Theme.of(context).primaryColor),
-                    textStyle: MaterialStateProperty.all<TextStyle>(
+                    textStyle: WidgetStateProperty.all<TextStyle>(
                         TextStyle(color: Colors.white)),
                   ),
                   onPressed: (state.selection?.isValid ?? true)
@@ -163,7 +162,7 @@ class _FeaturesModalWidgetState extends State<FeaturesModalWidget> {
                   state,
                   hideValue: true,
                   leading: CircleAvatar(
-                    backgroundColor: _question2 == null
+                    backgroundColor: _question2.isEmpty
                         ? Colors.grey
                         : Theme.of(context).primaryColor,
                     child: const Text(

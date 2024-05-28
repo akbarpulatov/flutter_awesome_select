@@ -71,9 +71,9 @@ class _FeaturesModalSelectorState extends State<FeaturesModalSelector> {
                   TextButton(
                     child: Text('OK (${state.selection?.length ?? 0})'),
                     style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all<Color>(
+                      backgroundColor: WidgetStateProperty.all<Color>(
                           Theme.of(context).primaryColor),
-                      textStyle: MaterialStateProperty.all<TextStyle>(
+                      textStyle: WidgetStateProperty.all<TextStyle>(
                           TextStyle(color: Colors.white)),
                     ),
                     onPressed: (state.selection?.isValid ?? true)
@@ -249,8 +249,8 @@ class ActionButton extends StatelessWidget {
       child: label,
       style: ButtonStyle(
         backgroundColor:
-            MaterialStateProperty.all<Color>(Theme.of(context).primaryColor),
-        textStyle: MaterialStateProperty.all<TextStyle>(
+            WidgetStateProperty.all<Color>(Theme.of(context).primaryColor),
+        textStyle: WidgetStateProperty.all<TextStyle>(
             TextStyle(color: Colors.white)),
       ),
       onPressed: onTap,

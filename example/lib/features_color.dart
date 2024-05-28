@@ -24,7 +24,7 @@ class _FeaturesColorState extends State<FeaturesColor> {
       title: 'Color',
       selectedValue: _themeColor,
       onChange: (selected) {
-        setState(() => _themeColor = selected.value);
+        setState(() => _themeColor = selected.value!);
         ThemePatrol.of(context)?.setColor(_themeColor);
       },
       choiceItems: colors,

@@ -15,10 +15,10 @@ import '../utils/debouncer.dart';
 /// Smart Select State
 abstract class S2State<T> extends State<SmartSelect<T>> {
   /// State of the selected choice(s)
-  S2Selected<T> get selected;
+  S2Selected<T?> get selected;
 
   /// State of choice(s) selection in the modal
-  covariant S2Selection<T>? selection;
+  covariant S2Selection<T?>? selection;
 
   /// State of the choice items
   S2Choices<T>? choices;
@@ -139,8 +139,8 @@ abstract class S2State<T> extends State<SmartSelect<T>> {
         backgroundColor:
             widget.modalConfig.isFullPage != true ? theme.cardColor : null,
         textStyle: widget.modalConfig.isFullPage != true
-            ? theme.textTheme.headline6
-            : theme.primaryTextTheme.headline6,
+            ? theme.textTheme.titleLarge
+            : theme.primaryTextTheme.titleLarge,
         iconTheme:
             widget.modalConfig.isFullPage != true ? theme.iconTheme : null,
         errorStyle: const TextStyle(
@@ -349,10 +349,10 @@ abstract class S2State<T> extends State<SmartSelect<T>> {
               icon: modalConfig.confirmIcon!,
               label: modalConfig.confirmLabel!,
               style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all<Color?>(
+                backgroundColor: WidgetStateProperty.all<Color?>(
                   modalConfig.confirmIsDark ? modalConfig.confirmColor : null,
                 ),
-                textStyle: MaterialStateProperty.all<TextStyle>(
+                textStyle: WidgetStateProperty.all<TextStyle>(
                   TextStyle(
                       color: modalConfig.confirmIsLight
                           ? modalConfig.confirmColor
@@ -370,11 +370,11 @@ abstract class S2State<T> extends State<SmartSelect<T>> {
                 const EdgeInsets.fromLTRB(0, 0, 10, 0),
             child: TextButton(
               style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all<Color?>(
+                backgroundColor: WidgetStateProperty.all<Color?>(
                     modalConfig.confirmIsDark
                         ? modalConfig.confirmColor ?? Colors.blueGrey
                         : null),
-                textStyle: MaterialStateProperty.all<TextStyle>(
+                textStyle: WidgetStateProperty.all<TextStyle>(
                   TextStyle(
                       color: modalConfig.confirmIsLight
                           ? modalConfig.confirmColor
@@ -714,7 +714,7 @@ abstract class S2State<T> extends State<SmartSelect<T>> {
           isScrollControlled: true,
           builder: (_) {
             final MediaQueryData mediaQuery =
-                MediaQueryData.fromWindow(WidgetsBinding.instance.window);
+                MediaQueryData.fromView(WidgetsBinding.instance.window);
             final double topObstructions = mediaQuery.viewPadding.top;
             final double bottomObstructions = mediaQuery.viewPadding.bottom;
             final double keyboardHeight = mediaQuery.viewInsets.bottom;

@@ -86,9 +86,9 @@ class _FeaturesModalConfirmState extends State<FeaturesModalConfirm> {
                   TextButton(
                     child: Text('OK (${state.selection?.length ?? 0})'),
                     style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all<Color>(
+                      backgroundColor: WidgetStateProperty.all<Color>(
                           Theme.of(context).primaryColor),
-                      textStyle: MaterialStateProperty.all<TextStyle>(
+                      textStyle: WidgetStateProperty.all<TextStyle>(
                           TextStyle(color: Colors.white)),
                     ),
                     onPressed: (state.selection?.isValid ?? true)
@@ -109,7 +109,6 @@ class _FeaturesModalConfirmState extends State<FeaturesModalConfirm> {
           choiceActiveStyle: const S2ChoiceStyle(color: Colors.redAccent),
           modalType: S2ModalType.bottomSheet,
           modalValidation: (selected) {
-            if (selected == null) return 'Select at least one';
             if (selected.value == 'iro') return 'Ironman is busy';
             return '';
           },
@@ -137,8 +136,8 @@ class _FeaturesModalConfirmState extends State<FeaturesModalConfirm> {
                   child: const Text('Send'),
                   style: ButtonStyle(
                     backgroundColor:
-                        MaterialStateProperty.all<Color>(Colors.redAccent),
-                    textStyle: MaterialStateProperty.all<TextStyle>(
+                        WidgetStateProperty.all<Color>(Colors.redAccent),
+                    textStyle: WidgetStateProperty.all<TextStyle>(
                         TextStyle(color: Colors.white)),
                   ),
                   onPressed: () => state.closeModal(confirmed: true),
