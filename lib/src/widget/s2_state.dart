@@ -1,5 +1,6 @@
 import 'package:awesome_select/awesome_select.dart';
 import 'package:collection/collection.dart' show ListEquality;
+import 'package:flutter/cupertino.dart' show CupertinoPageRoute;
 import 'package:flutter/material.dart';
 
 import '../choices_empty.dart';
@@ -698,7 +699,9 @@ abstract class S2State<T> extends State<SmartSelect<T>> {
       case S2ModalType.fullPage:
         confirmed = await (Navigator.push(
           context,
-          MaterialPageRoute(builder: (_) => modal),
+          modalConfig.navigatorType == S2ModalNavigatorType.material
+              ? MaterialPageRoute(builder: (_) => modal)
+              : CupertinoPageRoute(builder: (_) => modal),
         ));
         break;
       case S2ModalType.bottomSheet:

@@ -385,6 +385,7 @@ class SmartSelect<T> extends StatefulWidget {
     S2ModalStyle? modalStyle,
     S2ModalHeaderStyle? modalHeaderStyle,
     S2ModalType? modalType,
+    S2ModalNavigatorType? modalNavigatorType,
     String? modalTitle,
     bool? modalConfirm,
     bool? modalHeader,
@@ -460,6 +461,7 @@ class SmartSelect<T> extends StatefulWidget {
           ),
       modalConfig: defaultModalConfig.merge(modalConfig).copyWith(
             type: modalType,
+            navigatorType: modalNavigatorType,
             title: modalTitle,
             filterHint: modalFilterHint,
             filterAuto: modalFilterAuto,
@@ -708,6 +710,7 @@ class SmartSelect<T> extends StatefulWidget {
     S2ModalStyle? modalStyle,
     S2ModalHeaderStyle? modalHeaderStyle,
     S2ModalType? modalType,
+    S2ModalNavigatorType? modalNavigatorType,
     String? modalTitle,
     bool? modalConfirm,
     bool? modalHeader,
@@ -783,6 +786,7 @@ class SmartSelect<T> extends StatefulWidget {
           ),
       modalConfig: defaultModalConfig.merge(modalConfig).copyWith(
             type: modalType,
+            navigatorType: modalNavigatorType,
             title: modalTitle,
             filterHint: modalFilterHint,
             filterAuto: modalFilterAuto,
